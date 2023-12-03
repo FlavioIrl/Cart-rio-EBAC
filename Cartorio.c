@@ -60,7 +60,9 @@ int registro()  // Funçao responsavel por cadastrar os usuarios no sistema
     fprintf(file,",");
     fclose(file);
     
-    system("pause");               
+    system("pause");  
+	   
+	system("cls");          
                                 //fim do armazenamento
 }
 
@@ -92,6 +94,8 @@ int consulta()   //usado para consultar as informaçoes armazenados
 	}
 	fclose(file);
     system("pause");
+    
+    system("cls");
 }
 
 int deletar() //usado para apagar o usuario no registro
@@ -112,58 +116,76 @@ int deletar() //usado para apagar o usuario no registro
 			system("pause");
 		}
 		fclose(file);
+		
+		system("cls");
 }
 
 int main()         //funçao principal, ela vai ser sempre a primeira a ser executada
 {                         
 	int opcao=0;   //definindo as variaveis
 	int laco=1; 	//precisa que seja 1 para sempre entrar no for, pois enquanto a variavel for 1 irá repitir o codigo
+	char senhadigitada[10] = "a";
+	int comparacao;
 	
-	for(laco=1;laco=1;) //usado para repitir o codigo apartir daqui
-	{  			//chaves usado para definir o inicio e o fim do laço
 	system("cls");
 	
-	setlocale(LC_ALL, "portuguese"); //definindo a linguagem
+	setlocale(LC_ALL, "portuguese");
 	
-	printf("\t\t\t\t\t\t###-Cartório da EBAC-###\n\n"); //inicio do menu de opcao
-	printf("Escolha a opçao desejada no menu:\n\n");
-	printf("\t1 - Registrar nomes\n");
-	printf("\t2 - Consultar nomes\n");
-	printf("\t3 - Deletar nomes\n\n\n");
-	printf("\t4 - Sair do sistema\n\n\n");
-	printf("opção: ");//fim das opcaoes
+	printf("\t\t\t\t\t\t###-Cartório da EBAC-###\n\n");
+	printf("Login de Adimistrador!\n\n\Digite a sua senha: ");
+	scanf("%s", senhadigitada);
 	
-	scanf("%d", &opcao);  //armazenando a escolha do usuario
+	comparacao = strcmp(senhadigitada, "admin");
 	
-	system("cls"); //tem como função limpar a tela apos a escolha da opção
-	
-	switch(opcao) //usado para escolher a opçao
+	if(comparacao == 0)
 	{
-		case 1: //Se a variavel for a opçao 1
-	    registro(); //pucha a funçao "int" Registro
-		break;  //sempre se deve fechar
-		
-		case 2: //Ou 2
-		consulta(); //pucha a funçao "int" Consulta
-		break;
-		
-		case 3: //Ou 3
-	    deletar();  //pucha a funçao "int" Deletar
-		break;
-		
-		case 4:
-		printf("Obrigado por ter utilizado o sistema!");
-		return 0;
-		break;
-		
-		default:  //Ou não for nenhum
-		printf("Esta opcao não esta disponivel!\n");
-		system("pause");
-		break;
+		system("cls");
+
+		for(laco=1;laco=1;) //usado para repitir o codigo apartir daqui
+		{  			//chaves usado para definir o inicio e o fim do laço
+	
+			setlocale(LC_ALL, "portuguese"); //definindo a linguagem
+	
+			printf("\t\t\t\t\t\t###-Cartório da EBAC-###\n\n"); //inicio do menu de opcao
+			printf("Escolha a opçao desejada no menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n\n\n");
+			printf("\t4 - Sair do sistema\n\n\n");
+			printf("opção: ");//fim das opcaoes
+
+			scanf("%d", &opcao);  //armazenando a escolha do usuario
+	
+			system("cls"); //tem como função limpar a tela apos a escolha da opção
+	
+			switch(opcao) //usado para escolher a opçao
+			{
+				case 1: //Se a variavel for a opçao 1
+		    	registro(); //pucha a funçao "int" Registro
+				break;  //sempre se deve fechar
 			
+				case 2: //Ou 2
+				consulta(); //pucha a funçao "int" Consulta
+				break;
+			
+				case 3: //Ou 3
+	    		deletar();  //pucha a funçao "int" Deletar
+				break;
+			
+				case 4:
+				printf("Obrigado por ter utilizado o sistema!");
+				return 0;
+				break;
 		
-	}
+				default:  //Ou não for nenhum
+				printf("Esta opcao não esta disponivel!\n");
+				system("pause");
+				break;
+			
+			}
+		}
+	} 
+	else
+		printf("Senha incorreta!");
 	
-	
-} //fim do laço
-} 
+}
