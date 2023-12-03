@@ -127,8 +127,6 @@ int main()         //funçao principal, ela vai ser sempre a primeira a ser execu
 	char senhadigitada[10] = "a";
 	int comparacao;
 	
-	system("cls");
-	
 	setlocale(LC_ALL, "portuguese");
 	
 	printf("\t\t\t\t\t\t###-Cartório da EBAC-###\n\n");
